@@ -6,14 +6,14 @@
 Summary:	fpm - package building and mangling
 Name:		ruby-%{pkgname}
 Version:	0.4.36
-Release:	1
+Release:	2
 License:	GPL v2+ or Ruby
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	722802ab7f9ab4c2befa26551314fcff
 URL:		https://github.com/jordansissel/fpm
 BuildRequires:	rpm-rubyprov
-BuildRequires:	rpmbuild(macros) >= 1.656
+BuildRequires:	rpmbuild(macros) >= 1.665
 BuildRequires:	sed >= 4.0
 %if %{with tests}
 BuildRequires:	ruby-insist < 0.1
@@ -41,16 +41,19 @@ Convert directories, rpms, python eggs, rubygems, and more to rpms,
 debs, solaris packages and more. Win at package management without
 wasting pointless hours debugging bad rpm specs!
 
-
 %prep
 %setup -q -n %{pkgname}-%{version}
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
+%build
+%__gem_helper spec
+
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{_bindir}}
+install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_specdir},%{_bindir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
 cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
+cp -p %{pkgname}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,3 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/fpm
 %{ruby_vendorlibdir}/%{pkgname}.rb
 %{ruby_vendorlibdir}/%{pkgname}
+%{ruby_specdir}/%{pkgname}-%{version}.gemspec
