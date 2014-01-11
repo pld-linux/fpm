@@ -5,12 +5,12 @@
 %define	pkgname	fpm
 Summary:	fpm - package building and mangling
 Name:		ruby-%{pkgname}
-Version:	0.4.36
-Release:	2
+Version:	1.0.2
+Release:	1
 License:	GPL v2+ or Ruby
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	722802ab7f9ab4c2befa26551314fcff
+# Source0-md5:	d962faaf4e728bea52f3b7d0de3db29e
 URL:		https://github.com/jordansissel/fpm
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
@@ -21,17 +21,18 @@ BuildRequires:	ruby-insist >= 0.0.5
 BuildRequires:	ruby-minitest
 BuildRequires:	ruby-pry
 BuildRequires:	ruby-rspec
-BuildRequires:	ruby-rush
+BuildRequires:	ruby-stud
 %endif
 Requires:	ruby-arr-pm < 0.1
 Requires:	ruby-arr-pm >= 0.0.8
 Requires:	ruby-backports >= 2.6.2
 Requires:	ruby-cabin >= 0.6.0
 Requires:	ruby-childprocess
-Requires:	ruby-clamp = 0.6.0
+Requires:	ruby-clamp < 1
+Requires:	ruby-clamp >= 0.6
+Requires:	ruby-ffi
 Requires:	ruby-ftw < 0.1
 Requires:	ruby-ftw >= 0.0.30
-Requires:	ruby-json < 1.8
 Requires:	ruby-json >= 1.7.7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
