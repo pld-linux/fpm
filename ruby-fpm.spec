@@ -5,12 +5,12 @@
 %define	pkgname	fpm
 Summary:	fpm - package building and mangling
 Name:		ruby-%{pkgname}
-Version:	1.0.2
-Release:	2
-License:	GPL v2+ or Ruby
+Version:	1.4.0
+Release:	1
+License:	MIT-like
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	d962faaf4e728bea52f3b7d0de3db29e
+# Source0-md5:	4d82b0484db150928330b04bb44c92a2
 URL:		https://github.com/jordansissel/fpm
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
@@ -18,21 +18,19 @@ BuildRequires:	sed >= 4.0
 %if %{with tests}
 BuildRequires:	ruby-insist < 0.1
 BuildRequires:	ruby-insist >= 0.0.5
-BuildRequires:	ruby-minitest
 BuildRequires:	ruby-pry
-BuildRequires:	ruby-rspec
+BuildRequires:	ruby-rspec < 3.1
+BuildRequires:	ruby-rspec >= 3.0.0
 BuildRequires:	ruby-stud
 %endif
 Requires:	ruby-arr-pm < 0.1
-Requires:	ruby-arr-pm >= 0.0.8
+Requires:	ruby-arr-pm >= 0.0.10
 Requires:	ruby-backports >= 2.6.2
 Requires:	ruby-cabin >= 0.6.0
 Requires:	ruby-childprocess
 Requires:	ruby-clamp < 1
 Requires:	ruby-clamp >= 0.6
 Requires:	ruby-ffi
-Requires:	ruby-ftw < 0.1
-Requires:	ruby-ftw >= 0.0.30
 Requires:	ruby-json >= 1.7.7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,6 +45,7 @@ wasting pointless hours debugging bad rpm specs!
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
 %build
+# write .gemspec
 %__gem_helper spec
 
 %install
