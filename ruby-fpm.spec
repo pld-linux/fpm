@@ -47,6 +47,9 @@ wasting pointless hours debugging bad rpm specs!
 %patch0 -p1
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
+# cleanup backups after patching
+find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
+
 %build
 # write .gemspec
 %__gem_helper spec
