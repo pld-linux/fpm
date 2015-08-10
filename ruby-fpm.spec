@@ -33,6 +33,7 @@ Requires:	ruby-clamp < 1
 Requires:	ruby-clamp >= 0.6
 Requires:	ruby-ffi
 Requires:	ruby-json >= 1.7.7
+Suggests:	rpm-build
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
