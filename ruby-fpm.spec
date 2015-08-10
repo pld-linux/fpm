@@ -11,6 +11,7 @@ License:	MIT-like
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	4d82b0484db150928330b04bb44c92a2
+Patch0:		templates.patch
 URL:		https://github.com/jordansissel/fpm
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
@@ -42,6 +43,7 @@ wasting pointless hours debugging bad rpm specs!
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%patch0 -p1
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
 %build
@@ -53,6 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_specdir},%{_bindir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
 cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
+cp -a templates $RPM_BUILD_ROOT%{ruby_vendorlibdir}/%{pkgname}
 cp -p %{pkgname}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
 
 %clean

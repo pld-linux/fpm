@@ -1,0 +1,11 @@
+--- ./lib/fpm/package.rb~	2015-08-10 13:11:29.000000000 +0300
++++ ./lib/fpm/package.rb	2015-08-10 13:12:44.109522857 +0300
+@@ -319,7 +319,7 @@
+   end # def files
+ 
+   def template_dir
+-    File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "templates"))
++    File.expand_path(File.join(File.dirname(__FILE__), "templates"))
+   end
+ 
+   def template(path)
