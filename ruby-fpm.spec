@@ -6,7 +6,7 @@
 Summary:	fpm - package building and mangling
 Name:		ruby-%{pkgname}
 Version:	1.4.0
-Release:	1
+Release:	2
 License:	MIT-like
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
