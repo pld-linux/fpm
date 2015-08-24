@@ -12,6 +12,7 @@ Source0:	http://rubygems.org/downloads/%{name}-%{version}.gem
 # Source0-md5:	4d82b0484db150928330b04bb44c92a2
 Patch0:		templates.patch
 Patch1:		tmppath.patch
+Patch2:		config-attrs.patch
 URL:		https://github.com/jordansissel/fpm
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
@@ -47,6 +48,7 @@ wasting pointless hours debugging bad rpm specs!
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
 # cleanup backups after patching

@@ -1,0 +1,15 @@
+use pld style config noreplace attributes
+
+https://github.com/bernd/fpm-cookery/issues/71#issuecomment-134127418
+
+--- fpm-1.4.0/templates/rpm.erb~	2015-08-24 14:06:26.000000000 +0300
++++ fpm-1.4.0/templates/rpm.erb	2015-08-24 14:07:00.841529419 +0300
+@@ -238,7 +238,7 @@
+ %defattr(<%= attributes[:rpm_defattrfile] %>,<%= attributes[:rpm_user] || "root" %>,<%= attributes[:rpm_group] || "root" %>,<%= attributes[:rpm_defattrdir] %>)
+ <%# Output config files and then regular files. -%>
+ <% config_files.each do |path| -%>
+-%config(noreplace) <%= rpm_file_entry(path) %>
++%config(noreplace) %verify(not md5 mtime size) <%= rpm_file_entry(path) %>
+ <% end -%>
+ <%# list directories %>
+ <% directories.each do |path| -%>
