@@ -1,5 +1,5 @@
 # List of directories from filesystem package
-# $ rpm -ql filesystem FHS | LC_ALL=C sort
+# $ rpm -ql filesystem-4.0-43.x86_64 FHS-2.3-39.x86_64 | LC_ALL=C sort
 /
 /bin
 /boot
@@ -46,6 +46,10 @@
 /lib/udev
 /lib/udev/hwdb.d
 /lib/udev/rules.d
+/lib64
+/lib64/security
+/libx32
+/libx32/security
 /media
 /mnt
 /opt
@@ -74,10 +78,14 @@
 /usr/lib/debug/bin
 /usr/lib/debug/lib
 /usr/lib/debug/lib/security
+/usr/lib/debug/lib64
+/usr/lib/debug/lib64/security
+/usr/lib/debug/libx32
+/usr/lib/debug/libx32/security
 /usr/lib/debug/sbin
 /usr/lib/debug/usr
 /usr/lib/debug/usr/bin
-/usr/lib/debug/usr/lib
+/usr/lib/debug/usr/lib64
 /usr/lib/debug/usr/sbin
 /usr/lib/games
 /usr/lib/initrd
@@ -86,12 +94,32 @@
 /usr/lib/pkcs11
 /usr/lib/pkgconfig
 /usr/lib/tmpfiles.d
+/usr/lib64
+/usr/lib64/browser-plugins
+/usr/lib64/cmake
+/usr/lib64/games
+/usr/lib64/initrd
+/usr/lib64/mozilla
+/usr/lib64/mozilla/extensions
+/usr/lib64/pkcs11
+/usr/lib64/pkgconfig
+/usr/libx32
+/usr/libx32/browser-plugins
+/usr/libx32/cmake
+/usr/libx32/games
+/usr/libx32/initrd
+/usr/libx32/mozilla
+/usr/libx32/mozilla/extensions
+/usr/libx32/pkcs11
+/usr/libx32/pkgconfig
 /usr/local
 /usr/local/bin
 /usr/local/etc
 /usr/local/games
 /usr/local/include
 /usr/local/lib
+/usr/local/lib64
+/usr/local/libx32
 /usr/local/man
 /usr/local/man/man1
 /usr/local/man/man2
