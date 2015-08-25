@@ -1,0 +1,11 @@
+--- ./lib/fpm/package/rpm.rb~	2015-08-21 17:14:34.000000000 +0300
++++ ./lib/fpm/package/rpm.rb	2015-08-25 15:09:16.819807683 +0300
+@@ -469,7 +469,7 @@
+     # add init script if present
+     (attributes[:rpm_init_list] or []).each do |init|
+       name = File.basename(init, ".init")
+-      dest_init = File.join(staging_path, "etc/init.d/#{name}")
++      dest_init = File.join(staging_path, "etc/rc.d/init.d/#{name}")
+       FileUtils.mkdir_p(File.dirname(dest_init))
+       FileUtils.cp init, dest_init
+       File.chmod(0755, dest_init)
