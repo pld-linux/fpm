@@ -1,0 +1,14 @@
+attributes[:workdir] is empty when invoked via fpm-cookery
+just rely on os value, don't define at all
+
+--- ./lib/fpm/package/rpm.rb~	2015-08-10 23:07:09.000000000 +0300
++++ ./lib/fpm/package/rpm.rb	2015-08-21 17:11:59.163252070 +0300
+@@ -423,7 +423,7 @@
+       "--define", "_topdir #{build_path}",
+       "--define", "_sourcedir #{build_path}",
+       "--define", "_rpmdir #{build_path}/RPMS",
+-      "--define", "_tmppath #{attributes[:workdir]}"
++#      "--define", "_tmppath #{attributes[:workdir]}"
+     ]
+ 
+     args += ["--sign"] if attributes[:rpm_sign?]
