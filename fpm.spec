@@ -63,6 +63,10 @@ ruby -r rubygems -e 'spec = eval(File.read("%{name}.gemspec"))
 	file.puts spec.to_ruby_for_cache
 end'
 
+%if %{with tests}
+rspec
+%endif
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_specdir},%{_bindir}}
