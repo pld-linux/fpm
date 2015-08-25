@@ -55,7 +55,17 @@ wasting pointless hours debugging bad rpm specs!
 # cleanup backups after patching
 find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
 
+mv templates/rpm/filesystem_list .
+
 %build
+# replace filesystem_list with pld version
+pkgs="filesystem FHS"
+cat <<EOF> templates/rpm/filesystem_list
+# List of directories from filesystem package
+# $ rpm -ql $pkgs | LC_ALL=C sort
+EOF
+rpm -ql $pkgs | LC_ALL=C sort >> templates/rpm/filesystem_list
+
 # make gemspec self-contained
 ruby -r rubygems -e 'spec = eval(File.read("%{name}.gemspec"))
 	File.open("%{name}-%{version}.gemspec", "w") do |file|
