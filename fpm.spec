@@ -8,8 +8,8 @@ Version:	1.4.0
 Release:	1
 License:	MIT-like
 Group:		Development/Languages
-Source0:	http://rubygems.org/downloads/%{name}-%{version}.gem
-# Source0-md5:	4d82b0484db150928330b04bb44c92a2
+Source0:	https://github.com/jordansissel/fpm/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	1aae7b53d0e6470183222a7634b7d799
 Patch0:		templates.patch
 Patch1:		tmppath.patch
 Patch2:		config-attrs.patch
@@ -57,8 +57,11 @@ wasting pointless hours debugging bad rpm specs!
 find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
 
 %build
-# write .gemspec
-%__gem_helper spec
+# make gemspec self-contained
+ruby -r rubygems -e 'spec = eval(File.read("%{name}.gemspec"))
+	File.open("%{name}-%{version}.gemspec", "w") do |file|
+	file.puts spec.to_ruby_for_cache
+end'
 
 %install
 rm -rf $RPM_BUILD_ROOT
