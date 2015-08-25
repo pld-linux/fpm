@@ -19,8 +19,7 @@ BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
 BuildRequires:	sed >= 4.0
 %if %{with tests}
-BuildRequires:	ruby-insist < 0.1
-BuildRequires:	ruby-insist >= 0.0.5
+BuildRequires:	ruby-insist >= 0.0.6
 BuildRequires:	ruby-pry
 BuildRequires:	ruby-rspec < 3.1
 BuildRequires:	ruby-rspec >= 3.0.0
