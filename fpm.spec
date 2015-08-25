@@ -10,6 +10,7 @@ License:	MIT-like
 Group:		Development/Languages
 Source0:	https://github.com/jordansissel/fpm/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	1aae7b53d0e6470183222a7634b7d799
+Source1:	filesystem_list
 Patch0:		templates.patch
 Patch1:		tmppath.patch
 Patch2:		config-attrs.patch
@@ -52,20 +53,13 @@ wasting pointless hours debugging bad rpm specs!
 %patch3 -p1
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
+# replace filesystem_list with pld version
+cp -p %{SOURCE1} templates/rpm/filesystem_list
+
 # cleanup backups after patching
 find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
 
-mv templates/rpm/filesystem_list .
-
 %build
-# replace filesystem_list with pld version
-pkgs="filesystem FHS"
-cat <<EOF> templates/rpm/filesystem_list
-# List of directories from filesystem package
-# $ rpm -ql $pkgs | LC_ALL=C sort
-EOF
-rpm -ql $pkgs | LC_ALL=C sort >> templates/rpm/filesystem_list
-
 # make gemspec self-contained
 ruby -r rubygems -e 'spec = eval(File.read("%{name}.gemspec"))
 	File.open("%{name}-%{version}.gemspec", "w") do |file|
