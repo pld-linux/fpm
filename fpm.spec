@@ -5,7 +5,7 @@
 Summary:	fpm - package building and mangling
 Name:		fpm
 Version:	1.4.0
-Release:	1
+Release:	2
 License:	MIT-like
 Group:		Development/Languages
 Source0:	https://github.com/jordansissel/fpm/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -39,6 +39,9 @@ Suggests:	rpm-build
 Obsoletes:	ruby-fpm <= 1.4.0-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# skip python dependency generator
+%define		_noautoreqfiles %{ruby_vendorlibdir}/%{name}/package/pyfpm/get_metadata.py
 
 %description
 Convert directories, rpms, python eggs, rubygems, and more to rpms,
