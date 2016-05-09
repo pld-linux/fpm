@@ -1,0 +1,18 @@
+--- fpm-1.5.0/fpm.gemspec~	2016-04-13 07:31:03.000000000 +0300
++++ fpm-1.5.0/fpm.gemspec	2016-05-09 16:09:10.124438067 +0300
+@@ -45,15 +45,6 @@
+ 
+   spec.add_development_dependency("rake", "~> 10") # license: MIT
+ 
+-  # For creating tar archives (many packages are just tar archives)
+-  spec.add_dependency("archive-tar-minitar") # license: GPL2+
+-
+-  # For creating FreeBSD package archives (xz-compressed tars)
+-  spec.add_dependency("ruby-xz") # license: MIT
+-
+-  # For backward compatibility with older rubies
+-  spec.add_dependency("corefines", "~>1.9") # license: MIT
+-
+   spec.add_development_dependency("rspec", "~> 3.0.0") # license: MIT (according to wikipedia)
+   spec.add_development_dependency("insist", "~> 1.0.0") # license: Apache 2
+   spec.add_development_dependency("pry")

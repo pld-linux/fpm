@@ -15,6 +15,7 @@ Patch0:		templates.patch
 Patch1:		tmppath.patch
 Patch2:		config-attrs.patch
 Patch3:		pld-init.d-dir.patch
+Patch4:		optional-packages.patch
 URL:		https://github.com/jordansissel/fpm
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
@@ -45,6 +46,7 @@ wasting pointless hours debugging bad rpm specs!
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
 # replace filesystem_list with pld version
