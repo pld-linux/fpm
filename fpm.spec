@@ -26,15 +26,6 @@ BuildRequires:	ruby-rspec < 3.1
 BuildRequires:	ruby-rspec >= 3.0.0
 BuildRequires:	ruby-stud
 %endif
-Requires:	ruby-arr-pm < 0.1
-Requires:	ruby-arr-pm >= 0.0.10
-Requires:	ruby-backports >= 2.6.2
-Requires:	ruby-cabin >= 0.6.0
-Requires:	ruby-childprocess
-Requires:	ruby-clamp < 1
-Requires:	ruby-clamp >= 0.6
-Requires:	ruby-ffi
-Requires:	ruby-json >= 1.7.7
 Suggests:	rpm-build
 Obsoletes:	ruby-fpm <= 1.4.0-2
 BuildArch:	noarch
