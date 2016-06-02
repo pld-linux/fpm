@@ -16,3 +16,13 @@
    spec.add_development_dependency("rspec", "~> 3.0.0") # license: MIT (according to wikipedia)
    spec.add_development_dependency("insist", "~> 1.0.0") # license: Apache 2
    spec.add_development_dependency("pry")
+--- fpm-1.5.0/lib/fpm/package/freebsd.rb~	2016-04-13 07:31:03.000000000 +0300
++++ fpm-1.5.0/lib/fpm/package/freebsd.rb	2016-06-02 17:00:05.884532524 +0300
+@@ -5,7 +5,6 @@
+ require "fileutils"
+ require "rubygems/package"
+ require "xz"
+-require "corefines"
+ 
+ class FPM::Package::FreeBSD < FPM::Package
+   SCRIPT_MAP = {
