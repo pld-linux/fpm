@@ -1,37 +1,18 @@
---- fpm-1.5.0/fpm.gemspec~	2016-04-13 07:31:03.000000000 +0300
-+++ fpm-1.5.0/fpm.gemspec	2016-05-09 16:09:10.124438067 +0300
-@@ -45,15 +45,6 @@
+--- fpm-1.8.1/fpm.gemspec~	2017-02-05 11:46:58.000000000 +0200
++++ fpm-1.8.1/fpm.gemspec	2017-06-18 18:35:09.062502240 +0300
+@@ -47,15 +47,6 @@
  
    spec.add_development_dependency("rake", "~> 10") # license: MIT
  
 -  # For creating tar archives (many packages are just tar archives)
--  spec.add_dependency("archive-tar-minitar") # license: GPL2+
+-  spec.add_dependency("archive-tar-minitar", "0.5.2") # license: GPL2+
 -
 -  # For creating FreeBSD package archives (xz-compressed tars)
 -  spec.add_dependency("ruby-xz") # license: MIT
 -
--  # For backward compatibility with older rubies
--  spec.add_dependency("corefines", "~>1.9") # license: MIT
+-  # For sourcing from pleaserun 
+-  spec.add_dependency("pleaserun", "~> 0.0.24") # license: Apache 2
 -
    spec.add_development_dependency("rspec", "~> 3.0.0") # license: MIT (according to wikipedia)
    spec.add_development_dependency("insist", "~> 1.0.0") # license: Apache 2
    spec.add_development_dependency("pry")
---- fpm-1.5.0/lib/fpm/package/freebsd.rb	2016-06-02 17:00:05.884532524 +0300
-+++ fpm-1.5.0/lib/fpm/package/freebsd.rb	2016-06-02 17:02:43.152633607 +0300
-@@ -4,8 +4,6 @@
- require "digest"
- require "fileutils"
- require "rubygems/package"
--require "xz"
--require "corefines"
- 
- class FPM::Package::FreeBSD < FPM::Package
-   SCRIPT_MAP = {
-@@ -88,6 +86,7 @@
-     end
- 
-     # Create the .txz package archive from the files in staging_path.
-+    require "xz"
-     File.open(output_path, "wb") do |file|
-       XZ::StreamWriter.new(file) do |xz|
-         ::Gem::Package::TarWriter.new(xz) do |tar|
