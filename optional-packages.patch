@@ -1,6 +1,6 @@
---- fpm-1.8.1/fpm.gemspec~	2017-02-05 11:46:58.000000000 +0200
-+++ fpm-1.8.1/fpm.gemspec	2017-06-18 18:35:09.062502240 +0300
-@@ -47,15 +47,6 @@
+--- fpm-1.8.1/fpm.gemspec	2017-06-18 18:35:09.062502240 +0300
++++ fpm-1.8.1/fpm.gemspec	2017-06-20 19:35:03.759375133 +0300
+@@ -47,19 +47,10 @@
  
    spec.add_development_dependency("rake", "~> 10") # license: MIT
  
@@ -16,3 +16,8 @@
    spec.add_development_dependency("rspec", "~> 3.0.0") # license: MIT (according to wikipedia)
    spec.add_development_dependency("insist", "~> 1.0.0") # license: Apache 2
    spec.add_development_dependency("pry")
+-  spec.add_development_dependency("stud")
++  spec.add_dependency("stud")
+ 
+   spec.files = files
+   spec.require_paths << "lib"
