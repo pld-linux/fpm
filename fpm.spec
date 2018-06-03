@@ -5,7 +5,7 @@
 Summary:	fpm - package building and mangling
 Name:		fpm
 Version:	1.8.1
-Release:	1
+Release:	2
 License:	MIT-like
 Group:		Development/Languages
 Source0:	https://github.com/jordansissel/fpm/archive/v%{version}/%{name}-%{version}.tar.gz
