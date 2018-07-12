@@ -4,18 +4,19 @@
 
 Summary:	fpm - package building and mangling
 Name:		fpm
-Version:	1.8.1
-Release:	2
+Version:	1.10.1
+Release:	1
 License:	MIT-like
 Group:		Development/Languages
 Source0:	https://github.com/jordansissel/fpm/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	bac8217c5038ce2b144595fc62ca2dd9
+# Source0-md5:	5b11d2d3489abf1e1b43a0f134ae9bc9
 Source1:	filesystem_list
 Patch0:		templates.patch
 Patch1:		tmppath.patch
 Patch2:		config-attrs.patch
 Patch3:		pld-init.d-dir.patch
 Patch4:		optional-packages.patch
+Patch5:		relax-deps.patch
 URL:		https://github.com/jordansissel/fpm
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
@@ -47,6 +48,7 @@ wasting pointless hours debugging bad rpm specs!
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
 # replace filesystem_list with pld version

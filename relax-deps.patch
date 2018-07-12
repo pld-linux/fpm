@@ -1,0 +1,11 @@
+--- fpm-1.10.1/fpm.gemspec~	2018-07-12 22:41:07.000000000 +0200
++++ fpm-1.10.1/fpm.gemspec	2018-07-12 22:44:01.292656076 +0200
+@@ -24,7 +24,7 @@
+ 
+   # For parsing JSON (required for some Python support, etc)
+   # http://flori.github.com/json/doc/index.html
+-  spec.add_dependency("json", ">= 1.7.7", "< 2.0") # license: Ruby License
++  spec.add_dependency("json", ">= 1.7.7") # license: Ruby License
+ 
+   # For logging
+   # https://github.com/jordansissel/ruby-cabin

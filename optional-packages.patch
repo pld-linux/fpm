@@ -1,23 +1,15 @@
---- fpm-1.8.1/fpm.gemspec	2017-06-18 18:35:09.062502240 +0300
+--- fpm-1.8.1/fpm.gemspec~	2017-06-18 18:35:09.062502240 +0300
 +++ fpm-1.8.1/fpm.gemspec	2017-06-20 19:35:03.759375133 +0300
-@@ -47,19 +47,10 @@
+@@ -47,12 +47,6 @@
  
    spec.add_development_dependency("rake", "~> 10") # license: MIT
  
--  # For creating tar archives (many packages are just tar archives)
--  spec.add_dependency("archive-tar-minitar", "0.5.2") # license: GPL2+
--
 -  # For creating FreeBSD package archives (xz-compressed tars)
--  spec.add_dependency("ruby-xz") # license: MIT
+-  spec.add_dependency("ruby-xz", "~> 0.2.3") # license: MIT
 -
--  # For sourcing from pleaserun 
--  spec.add_dependency("pleaserun", "~> 0.0.24") # license: Apache 2
+-  # For sourcing from pleaserun
+-  spec.add_dependency("pleaserun", "~> 0.0.29") # license: Apache 2
 -
-   spec.add_development_dependency("rspec", "~> 3.0.0") # license: MIT (according to wikipedia)
-   spec.add_development_dependency("insist", "~> 1.0.0") # license: Apache 2
-   spec.add_development_dependency("pry")
--  spec.add_development_dependency("stud")
-+  spec.add_dependency("stud")
+   spec.add_dependency("stud")
  
-   spec.files = files
-   spec.require_paths << "lib"
+   spec.add_development_dependency("rspec", "~> 3.0.0") # license: MIT (according to wikipedia)
