@@ -4,12 +4,12 @@
 
 Summary:	fpm - package building and mangling
 Name:		fpm
-Version:	1.10.1
+Version:	1.10.2
 Release:	1
 License:	MIT-like
 Group:		Development/Languages
 Source0:	https://github.com/jordansissel/fpm/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	5b11d2d3489abf1e1b43a0f134ae9bc9
+# Source0-md5:	32f3982154a2bb3f00bf99357a3e792c
 Source1:	filesystem_list
 Patch0:		templates.patch
 Patch1:		tmppath.patch
